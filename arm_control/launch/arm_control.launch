@@ -1,0 +1,30 @@
+<!-- arm_control.launch -->
+<launch>
+  <!-- Start a tf2 static transform publisher -->
+  <!-- remember:x,y,z,yaw,pitch,roll!!!!!! -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="wrist_to_camera_back"
+        args="0.0378 0.0596 0.0 0.0 0.0 -1.57 /wrist /camera_back_frame" />
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="camera_back_to_camera_tf" 
+      args="0.021, 0.018, 0.000, 0.00 0.000 0.000 /camera_back_frame /camera_link" />
+
+  
+
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch" />
+  <include file="$(find apriltag_ros)/launch/continuous_detection.launch" />
+      
+      <!-- Argument Declarations -->
+  <!-- <arg name="ip" default="192.168.1.10" /> -->
+  <!-- <arg name="username" default="admin" /> -->
+  <!-- <arg name="password" default="admin" />
+  <arg name="tag_frame" default="tag_3" /> -->
+
+  <!-- Run the arm_control_node.py -->
+  <!-- <node name="arm_control_node" pkg="arm_control" type="arm_control_node.py" output="screen" >
+    <param name="ip" value="$(arg ip)" />
+    <param name="username" value="$(arg username)" />
+    <param name="password" value="$(arg password)" />
+  </node> -->
+
+  <node pkg="rviz" type="rviz" name="rviz" args="~/carto_ws/src/arm_control/arm_test.rviz" required="true" />
+</launch>

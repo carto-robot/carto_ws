@@ -1,0 +1,37 @@
+<!-- arm_control.launch -->
+<launch>
+  <!-- Start a tf2 static transform publisher -->
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_end_effector_broadcaster"
+        args="0.0 0.0 0.0 1.57 0.0 0.0 /base_link /end_effector " /> -->
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="end_effector_to_camera_tf" 
+      args="0.000 0.056 -0.003 3.1416 0.000 0.000 /end_effector_link /camera_link" /> -->
+
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="end_effector_to_camera_tf1" 
+      args="0.230, -0.230, -0.325 2.356 -0.785 -3.1416 /Left_base_link /arm_world_link" />
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="end_effector_to_camera_tf2" 
+      args="0, 0, 0, -2.186, -0.521 2.5266 /arm_world_link  /Right_base_link " /> -->
+
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="end_effector_to_camera_tf2" 
+      args="0, 0, 0, -2.356, 0.785 -3.1416 /Right_base_link /arm_world_link " /> -->
+
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="wrist_to_camera_back"
+        args="0.0378 0.0 0.0596 0.0 0.0 -1.57 /wrist /camera_back " />
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="camera_back_to_camera_tf" 
+      args="0.021, 0.018, 0.000, 0.00 0.000 0.000 /camera_back_frame /camera_link" /> -->
+<!-- 左手上的位置 -->
+<!-- <node pkg="tf2_ros" type="static_transform_publisher" name="wrist_to_camera_back"
+      args="0.0378 0.0596 0.0  0.0 0.0 -1.57 /wrist /camera_back_frame " /> -->
+
+<!-- 右手上的位置 -->
+<node pkg="tf2_ros" type="static_transform_publisher" name="wrist_to_camera_back"
+      args="0.0378 -0.0596 0.0  0.0 0.0 1.57 /wrist /camera_back_frame " />
+
+<node pkg="tf2_ros" type="static_transform_publisher" name="camera_back_to_camera_tf" 
+    args="0.021, 0.018, 0.000, 0.00 0.000 0.000 /camera_back_frame /camera_link" />
+
+
+
+  <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d /home/zjw/kinova_vision_ws/src/arm_control/kinova_arm.rviz" required="true" /> -->
+</launch>
